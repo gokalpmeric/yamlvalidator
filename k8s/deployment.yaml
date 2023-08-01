@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: yaml-validator
-        image: gokalpmeric/yamlvalidate:0.0.1
+        image: gokalpmeric/yamlvalidate:0.0.2
         ports:
         - containerPort: 5000
