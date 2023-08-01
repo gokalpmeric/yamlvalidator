@@ -5,7 +5,7 @@ metadata:
   labels:
     app: yaml-validator
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: yaml-validator
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: yaml-validator
-        image: <your-docker-image>
+        image: gokalpmeric/yamlvalidate:0.0.1
         ports:
         - containerPort: 5000
