@@ -14,5 +14,20 @@ def home():
             return render_template('index.html', result='Invalid YAML', color='red')
     return render_template('index.html', result='', color='black')
 
+@app.route('/validate', methods=['POST'])
+def validate_yaml():
+    file = request.files.get('file')
+    
+    if file is None:
+        return 'No file provided\n', 400
+
+    yaml_content = file.read().decode('utf-8')
+
+    try:
+        yaml.safe_load(yaml_content)
+        return 'Valid YAML\n', 200
+    except Exception as e:
+        return 'Invalid YAML\n', 400
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
